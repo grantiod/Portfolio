@@ -1,0 +1,25 @@
+p {
+    text-align: center;
+    font-size: 35px;
+    border: 10px;
+    border-color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 35px;
+    border: 1px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(179, 179, 157, 0.63);
+}

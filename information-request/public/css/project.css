@@ -1,0 +1,48 @@
+p {
+    text-align: center;
+    font-size: 35px;
+    border: 10px;
+    border-color: black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(179, 179, 157, 0.63);
+}
+
+div {
+    margin: 20px;
+}
+
+table, th, td {
+    border: 1px solid rgba(0, 0, 0, .25);
+}
+
+th, td {
+    padding: 5px 10px;
+}
+
+th {
+    background-color: #126cb5;
+    color: #fff;
+    font-weight: 700;
+}
+
+.fieldset {
+    text-align: center;
+}
+
+#link {
+    color: rgba(0, 255, 255, 0.612);
+}
+
+#adminglink {
+    text-align: center;
+    padding: 10px;
+}
+
+#footer {
+    text-align: center;
+    padding: 5%;
+}
