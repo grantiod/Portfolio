@@ -5,12 +5,6 @@ root = Tk()
 root.title("Desktop Friend!")
 root.geometry('1500x700')
 
-def copy_file():
-    pass
-
-def move_file():
-    pass
-
 def make_folder():
     new_folder = os.getcwd() + '\\' + make_folder_entry.get()
     make_folder_entry.delete(0, END)
@@ -179,20 +173,6 @@ if True:
     make_folder_btn.grid(row=4, column=2, padx=5, pady=10)
     make_folder_entry = Entry(root)
     make_folder_entry.grid(row=4, column=3, padx=5, pady=10)
-
-# copy a file
-if True:
-    copy_file_btn = Button(root, text='Copy File', command=copy_file)
-    copy_file_btn.grid(row=4, column=4, padx=5, pady=10)
-    copy_file_entry = Entry(root)
-    copy_file_entry.grid(row=4, column=5, padx=5, pady=10)
-
-# move a file
-if True:
-    move_file_btn = Button(root, text='Move File', command=copy_file)
-    move_file_btn.grid(row=5, column=4, padx=5, pady=10)
-    move_file_entry = Entry(root)
-    move_file_entry.grid(row=5, column=5, padx=5, pady=10)
 
 if __name__ == '__main__':
     mainloop()
