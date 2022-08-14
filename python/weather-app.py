@@ -6,7 +6,7 @@ WEATHER_API_KEY = "5711fdcec2171844b445fb2bc3a15f7c"
 
 root = Tk()
 root.title("Weather App")
-root.geometry("600x200")
+root.geometry("600x300")
 
 # URL's:
 # https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=21204&distance=5&API_KEY=F13BA867-EB7C-4EFC-B552-277B9AC861CC
@@ -21,28 +21,22 @@ def zipLookup():
     try:
         # air quality api request
         air_api_request = requests.get("https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=" + zip_entry.get() + "&distance=5&API_KEY=F13BA867-EB7C-4EFC-B552-277B9AC861CC")
-        print('air api requested')
         air_api = json.loads(air_api_request.content)
-        print('air api json received')
         city = air_api[0]['ReportingArea']
         air_quality = air_api[0]['AQI']
         air_category = air_api[0]['Category']['Name']
         lat = air_api[0]['Latitude']
-        print(lat)
         lon = air_api[0]['Longitude']
-        print(lon)
 
         # weather api request
         weather_api_request = requests.get("https://api.openweathermap.org/data/2.5/weather?lat=" + str(lat) + "&lon=" + str(lon) + "&appid=" + WEATHER_API_KEY)
         weather_api = json.loads(weather_api_request.content)
         weather = weather_api['weather'][0]['main']
-        print('weather obtained')
-        temperature = weather_api['main']['temp']
-        print('temp obtained')
+        temperature = weather_api['main']['temp'] # stores in kelvin
+        temperature = (temperature * 1.8) - 459.67 # convert to fahrenheit
+        temperature = round(temperature, 2) # round to nearest second digit
         wind_speed = weather_api['wind']['speed']
-        print('wind speed obtained')
         humidity = weather_api['main']['humidity']
-        print('humidity obtained')
 
         if air_category == "Good":
             weather_color = "#0C0"
@@ -62,11 +56,11 @@ def zipLookup():
         air_lbl.grid(row=1, column=0, sticky=W+E)
         weather_lbl = Label(root, text=weather, font=("Helvetica", 20), background=weather_color)
         weather_lbl.grid(row=2, column=0, sticky=W+E)
-        temperature_lbl = Label(root, text=str(temperature), font=("Helvetica", 20), background=weather_color)
+        temperature_lbl = Label(root, text=str(temperature) + " Degrees", font=("Helvetica", 20), background=weather_color)
         temperature_lbl.grid(row=3, column=0, sticky=W+E)
-        wind_speed_lbl = Label(root, text='Wind Speed' + str(wind_speed), font=("Helvetica", 20), background=weather_color)
+        wind_speed_lbl = Label(root, text='Wind Speed ' + str(wind_speed), font=("Helvetica", 20), background=weather_color)
         wind_speed_lbl.grid(row=4, column=0, sticky=W+E)
-        humidity_lbl = Label(root, text='Humidity' + str(humidity), font=("Helvetica", 20), background=weather_color)
+        humidity_lbl = Label(root, text='Humidity ' + str(humidity), font=("Helvetica", 20), background=weather_color)
         humidity_lbl.grid(row=5, column=0, sticky=W+E)
 
     except Exception as e:

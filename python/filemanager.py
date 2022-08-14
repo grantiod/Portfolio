@@ -1,6 +1,8 @@
-from tkinter import END, Entry, Label, Tk, Button, Toplevel, mainloop, W, E, Text
+from tkinter import END, Entry, Label, OptionMenu, Tk, Button, Toplevel, mainloop, W, E, Text, N, S
 import os
 from calculator import Calculator
+# from airquality import AirQuality
+from weather import Weather
 
 root = Tk()
 root.title("Desktop Friend!")
@@ -27,7 +29,6 @@ def delete_folder():
 def delete_file():
     delete_file = delete_file_entry.get()
     delete_file_entry.delete(0, END)
-    print(os.getcwd())
     try:
         os.remove( os.getcwd() + '\\' + delete_file )
         display()
@@ -116,6 +117,10 @@ def calculator_win():
     calc_win = Calculator()
     calc_win.run()
 
+def weather_win():
+    weather_win = Weather()
+    weather_win.run()
+
 # current directory
 if True:
     os.chdir('C:/Users/giodi/OneDrive/Desktop/')
@@ -141,17 +146,22 @@ if True:
     list_files_lbl.grid(row=3, column=0, pady=10, sticky=W+E)
     files_text_box = Text(root, width=50)
     files_text_box.insert(END, files_list)
-    files_text_box.grid(row=4, column=0, pady=10, sticky=W+E)
+    files_text_box.grid(row=4, column=0, pady=10, sticky=W+E+N+S)
     list_folders_lbl = Label(root, text='Folders:')
     list_folders_lbl.grid(row=3, column=1, pady=10)
     folders_text_box = Text(root, width=50)
     folders_text_box.insert(END, folders_list)
-    folders_text_box.grid(row=4, column=1, pady=10, sticky=W+E)
+    folders_text_box.grid(row=4, column=1, pady=10, sticky=W+E+N+S)
 
 # calculator pop-up page
 if True:
-    calculator_btn = Button(root, text='Calculator', command=calculator_win)
-    calculator_btn.grid(row=0, column=2)
+        calculator_btn = Button(root, text='Calculator', command=calculator_win)
+calculator_btn.grid(row=0, column=2)
+
+# air quality pop-up page
+if True:
+    weather_btn = Button(root, text='Weather', command=weather_win)
+    weather_btn.grid(row=0, column=3)
 
 # change directory
 if True:
