@@ -14,4 +14,3 @@ Holds my python work
 
 ### Information Request
 Holds the code to my information request website. MEN stack written in HTML, CSS, and JavaScript.
-![info-req](https://drive.google.com/file/d/1Pb0wfcaRhMqGo0hJI4gufsXsp7LIssDv/view)
