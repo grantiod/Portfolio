@@ -21,6 +21,7 @@ Holds my python work
 
 ### Information Request
 Holds the code to my information request website. MEN stack written in HTML, CSS, and JavaScript.
-
-
-### Features
+Users:
+* User inputs personal data into textfields and submit
+* User data stored on MongoDB
+* Admin can view data in a table on separate page
