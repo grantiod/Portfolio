@@ -5,9 +5,6 @@ Some personal projects of mine
 ### Python
 Holds my python work
 
-### JavaScript
-Holds my JavaScript work
-
 ### Information Request Form
 Holds the code to my information request website. MEN stack written in HTML, CSS, and JavaScript.
 Users:
