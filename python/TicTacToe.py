@@ -7,11 +7,13 @@ def main():
     while whoFirst != 'y' and whoFirst != 'n':
         print("Not valid. Try Again.")
         whoFirst = input("Would you like to go first (y/n)? ")
-        whoFirst = whoFirst.lower
+        whoFirst = whoFirst.lower()
     if whoFirst == 'y':
         pFirst()
     elif whoFirst == 'n':
         cFirst()
+
+    x = input('Press enter to terminate ')
 
 def pFirst():
     ttt = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ]

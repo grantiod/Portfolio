@@ -155,8 +155,8 @@ if True:
 
 # calculator pop-up page
 if True:
-        calculator_btn = Button(root, text='Calculator', command=calculator_win)
-calculator_btn.grid(row=0, column=2)
+    calculator_btn = Button(root, text='Calculator', command=calculator_win)
+    calculator_btn.grid(row=0, column=2)
 
 # air quality pop-up page
 if True:
